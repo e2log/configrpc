@@ -12,4 +12,8 @@ This the Configrpc Service Server component based on [gRpc](https://grpc.io/docs
 
 ### Install the dependency `configrpc-api.jar` locally, see project for install details 
 
+
+### Run
+`./mvnw spring-boot:run`
+
 Note: this project uses Google protocol buffers
