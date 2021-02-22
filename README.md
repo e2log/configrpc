@@ -1,8 +1,12 @@
 # ConfigRPC
-A Distributed Configuration Service Based on gRPC
+A Distributed Configuration Service Based on gRPC. 
 
+Each comfiguration is composed of a key/value pair, where the key can be any string and value is a *JSON* document so that nested structured configurations can be stored.
 
-This the Configrpc Service Server component based on [gRpc](https://grpc.io/docs/guides/), it depends on the interface `configrpc-api.jar`  
+This is the **ConfigRPC** *server* component, it provides a [gRpc](https://grpc.io/docs/guides/) API for retrieving partial or total configuration objects from the main value using **JSON Path** expressions.
+
+## Dependencies
+This servercomponent depends on the interface submodule [configrpc-api.jar](https://github.com/e2log/configrpc-api)  
 
 ![Architecture](grpc-interface.svg)
 
