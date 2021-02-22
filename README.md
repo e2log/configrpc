@@ -62,10 +62,10 @@ Note: this project uses Google protocol buffers
 - Returns:
  `["sam@svc.com","ana@svc.com"]`
 
-All admins JsonPath query: 
+All admins JsonPath query:   
 ![GRPC-UI All Admins Query](all-admins-grpc-ui-query.png) 
   
   
-All admins result:
+All admins result:  
 ![GRPC-UI All Admins Result](all-admins-grpc-ui-result.png) 
 
