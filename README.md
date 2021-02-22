@@ -64,7 +64,8 @@ Note: this project uses Google protocol buffers
 
 All admins JsonPath query: 
 ![GRPC-UI All Admins Query](all-admins-grpc-ui-query.png) 
-
+  
+  
 All admins result:
 ![GRPC-UI All Admins Result](all-admins-grpc-ui-result.png) 
 
