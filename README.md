@@ -78,6 +78,8 @@ message KeyString {
   Returns:
  `["sam@svc.com","ana@svc.com"]`
 
+#### Using [gRPC-UI](https://github.com/fullstorydev/grpcui)
+
 All admins JsonPath query:   
 ![GRPC-UI All Admins Query](all-admins-grpc-ui-query.png) 
   
@@ -104,7 +106,4 @@ This server component depends on the interface submodule [configrpc-api.jar](htt
 
 Note: this project uses Google protocol buffers
 
-## Run gRPC UI using docker
-
-- todo
 
