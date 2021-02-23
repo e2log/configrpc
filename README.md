@@ -5,30 +5,13 @@ Each comfiguration is composed of a key/value pair, where the key can be any str
 
 This is the **ConfigRPC** *server* component, it provides a [gRpc](https://grpc.io/docs/guides/) API for retrieving partial or total configuration objects from the main value using **JSON Path** expressions.
 
-## Dependencies
-This servercomponent depends on the interface submodule [configrpc-api.jar](https://github.com/e2log/configrpc-api)  
-
-![Architecture](grpc-interface.svg)
-
-## How do I get set up? ###
- 
-- java 11 or newer 
-
-## Install the dependency `configrpc-api.jar` locally, see project for install details 
-
-
-## Run
-`./mvnw spring-boot:run`
-
-Note: this project uses Google protocol buffers
-
-## Run gRPC UI using docker
-
-- todo
-
 ## Sample JsonPath queries:
 
-- Given the following config data
+- Given the following config data:
+
+key: `/service/data`
+
+value:
 ```json
 {
   "environments" : [
@@ -80,4 +63,27 @@ All admins JsonPath query:
   
 All admins result:  
 ![GRPC-UI All Admins Result](all-admins-grpc-ui-result.png) 
+
+
+
+## Dependencies
+This servercomponent depends on the interface submodule [configrpc-api.jar](https://github.com/e2log/configrpc-api)  
+
+![Architecture](grpc-interface.svg)
+
+## How do I get set up? ###
+ 
+- java 11 or newer 
+
+## Install the dependency `configrpc-api.jar` locally, see project for install details 
+
+
+## Run
+`./mvnw spring-boot:run`
+
+Note: this project uses Google protocol buffers
+
+## Run gRPC UI using docker
+
+- todo
 
