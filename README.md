@@ -10,7 +10,6 @@ This is the **ConfigRPC** *server* component, it provides a [gRpc](https://grpc.
 ```protobuf
 service ConfigrpcService {
     rpc findString( FindStringRequest ) returns ( FindStringResponse ) {}
-    rpc findObject( FindObjectRequest ) returns ( FindObjectResponse ) {}
 }
 
 message FindStringRequest{
