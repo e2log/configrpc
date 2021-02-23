@@ -5,13 +5,37 @@ Each comfiguration is composed of a key/value pair, where the key can be any str
 
 This is the **ConfigRPC** *server* component, it provides a [gRpc](https://grpc.io/docs/guides/) API for retrieving partial or total configuration objects from the main value using **JSON Path** expressions.
 
-## Sample JsonPath queries:
+## JSON Path gRPC API.
 
-- Given the following config data:
+```protobuf
+service ConfigrpcService {
+    rpc findString( FindStringRequest ) returns ( FindStringResponse ) {}
+    rpc findObject( FindObjectRequest ) returns ( FindObjectResponse ) {}
+}
 
-key: `/service/data`
+message FindStringRequest{
+    string key = 1;
+    google.protobuf.StringValue jsonPath = 2;
+}
 
-value:
+message FindStringResponse{
+    KeyString kv = 1;
+}
+
+message KeyString {
+    string key = 1;
+    string value = 2;
+}
+
+```
+
+## Examples
+
+### Given the following configuration data pair
+
+**key**: `/service/data`
+
+**value**:
 ```json
 {
   "environments" : [
@@ -28,7 +52,7 @@ value:
   ]
 }
 ```
-- Query 1: All database properties of 1st environment
+#### Query 1: All database properties of 1st environment
 
     key : `/service/data` 
 
@@ -36,9 +60,8 @@ value:
     
   Returns:
  `{host=10.0.0.79, user=sa, password_key=test-db-pwd}`
-  
-  
-- Query 2: The host property of the database of 1st environment 
+
+#### Query 2: The host property of the database of 1st environment 
 
     key : `/service/data` 
    
@@ -46,15 +69,14 @@ value:
     
   Returns:
  `10.0.0.79`
-  
-  
-- Query 3: The property admin of all the database configurations
+ 
+ #### Query 3: The property admin of all the database configurations
 
     key : `/service/data` 
    
     jsonPath : `$..admin`
     
-- Returns:
+  Returns:
  `["sam@svc.com","ana@svc.com"]`
 
 All admins JsonPath query:   
@@ -66,16 +88,16 @@ All admins result:
 
 
 
-## Dependencies
-This servercomponent depends on the interface submodule [configrpc-api.jar](https://github.com/e2log/configrpc-api)  
-
-![Architecture](grpc-interface.svg)
-
 ## How do I get set up? ###
  
 - java 11 or newer 
 
-## Install the dependency `configrpc-api.jar` locally, see project for install details 
+## Dependencies
+This server component depends on the interface submodule [configrpc-api.jar](https://github.com/e2log/configrpc-api)  
+
+![Architecture](grpc-interface.svg)
+
+## Install the dependency `configrpc-api.jar` locally, see [project](https://github.com/e2log/configrpc-api) for install details 
 
 
 ## Run
