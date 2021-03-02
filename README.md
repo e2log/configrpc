@@ -1,7 +1,10 @@
 # ConfigRPC
 A Distributed Configuration Service Based on gRPC. 
 
-Each comfiguration is composed of a key/value pair, where the key can be any string and value is a *JSON* document so that nested structured configurations can be stored.
+Each comfiguration is composed of a key/value pair, where the key can be any string and value is a *JSON* document so that nested structured configurations can be stored. 
+
+As an use case example, we at e2log.com, use a similar service to store feature toggles and parameters for each module of our B2B SaaS platform.
+All feature toggles and parameters for all modules are stored in a single JSON document with the customer identifier as the key. 
 
 This is the **ConfigRPC** *server* component, it provides a [gRpc](https://grpc.io/docs/guides/) API for retrieving partial or total configuration objects from the main value using **JSON Path** expressions.
 
