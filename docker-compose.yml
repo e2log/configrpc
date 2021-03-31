@@ -1,0 +1,19 @@
+version: '3.1'
+
+services:
+
+  app:
+    build: .
+    environment:
+      SPRING_H2_CONSOLE_ENABLED: "true"
+    ports:
+      - 9090:9090
+
+  grpcui:
+    image: wongnai/grpcui
+    environment:
+      GRPCUI_SERVER: "app:9090"
+    ports:
+      - 8080:8080
+    links:
+      - app
