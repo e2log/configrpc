@@ -20,7 +20,43 @@ Note: this project uses Google protocol buffers
 
 ## Run gRPC UI using docker
 
-- todo
+Find out more about grpc-ui [here](https://github.com/fullstorydev/grpcui)
+
+- Run using docker-compose
+
+```
+docker-compose up -d grpcui
+```
+
+- Run using Docker directly
+
+```
+docker run -eGRPCUI_SERVER=<YOUR_HOSTNAME_OR_LOCAL_IP>:9090 -p8080:8080 wongnai/grpcui
+```
+
+- Navigate to [http://localhost:8080](http://localhost:8080)
+
+## Use grpcurl
+
+Install grpcurl using instructions provided [here](https://github.com/fullstorydev/grpcurl)
+
+- List available services
+
+```
+grpcurl -plaintext localhost:9090 list
+```
+
+- List available methods for service
+
+```
+grpcurl -plaintext localhost:9090 list e2log.configrpc.ConfigrpcService
+```
+
+- Query service
+
+```
+grpcurl -plaintext -d '{ "key": "/service/data" }' localhost:9090 e2log.configrpc.ConfigrpcService.findString
+```
 
 ## Sample JsonPath queries:
 
